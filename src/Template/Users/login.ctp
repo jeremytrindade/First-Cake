@@ -3,7 +3,7 @@
         <h3 class="text-center">Patientcare Admin Login</h3>
         <?=$this->Form->create();?>
             <?=$this->Form->input('email');?>
-            <?=$this->Form->crinputeate('passowrd', array('type'=> 'password'));?>
+            <?=$this->Form->crinputeate('password', array('type'=> 'password'));?>
             <?=$this->Form->submit('Login',array('class'=>'button'));?>
         <?=$this->Form->end();?>
     </div>
