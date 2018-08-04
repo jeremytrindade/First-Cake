@@ -13,7 +13,6 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('carrier_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('street_address') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('city') ?></th>
@@ -21,8 +20,6 @@
                 <th scope="col"><?= $this->Paginator->sort('zipcode') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -30,7 +27,6 @@
             <?php foreach ($patients as $patient): ?>
             <tr>
                 <td><?= $this->Number->format($patient->id) ?></td>
-                <td><?= $patient->has('carrier') ? $this->Html->link($patient->carrier->name, ['controller' => 'Carriers', 'action' => 'view', $patient->carrier->id]) : '' ?></td>
                 <td><?= h($patient->name) ?></td>
                 <td><?= h($patient->street_address) ?></td>
                 <td><?= h($patient->city) ?></td>
@@ -38,8 +34,6 @@
                 <td><?= h($patient->zipcode) ?></td>
                 <td><?= h($patient->email) ?></td>
                 <td><?= h($patient->phone) ?></td>
-                <td><?= h($patient->created) ?></td>
-                <td><?= h($patient->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $patient->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $patient->id]) ?>

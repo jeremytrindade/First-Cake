@@ -14,9 +14,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('accepting_patients') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('Accepting Patients') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -25,9 +23,11 @@
             <tr>
                 <td><?= $this->Number->format($doctor->id) ?></td>
                 <td><?= h($doctor->name) ?></td>
-                <td><?= h($doctor->accepting_patients) ?></td>
-                <td><?= h($doctor->created) ?></td>
-                <td><?= h($doctor->modified) ?></td>
+                <td><?php if($doctor->accepting_patients == 1):?>
+                    <span style="color:green" class="glyphicon glyphicon-ok">Yes</span>
+                <?php else : ?>
+                    <span style="color:red" class="glyphicon glyphicon-remove">No</span>
+                <?php endif; ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $doctor->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $doctor->id]) ?>

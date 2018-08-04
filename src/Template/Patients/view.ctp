@@ -61,21 +61,15 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Patient Id') ?></th>
                 <th scope="col"><?= __('Doctor Id') ?></th>
                 <th scope="col"><?= __('Appointment Date') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($patient->appointments as $appointments): ?>
             <tr>
                 <td><?= h($appointments->id) ?></td>
-                <td><?= h($appointments->patient_id) ?></td>
-                <td><?= h($appointments->doctor_id) ?></td>
+                <td><?= $this->Format->getName($appointments->doctor_id, 'doctors') ?></td>
                 <td><?= h($appointments->appointment_date) ?></td>
-                <td><?= h($appointments->created) ?></td>
-                <td><?= h($appointments->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Appointments', 'action' => 'view', $appointments->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Appointments', 'action' => 'edit', $appointments->id]) ?>
@@ -92,23 +86,19 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Patient Id') ?></th>
                 <th scope="col"><?= __('Amount') ?></th>
                 <th scope="col"><?= __('Services') ?></th>
                 <th scope="col"><?= __('Due') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($patient->invoices as $invoices): ?>
             <tr>
                 <td><?= h($invoices->id) ?></td>
-                <td><?= h($invoices->patient_id) ?></td>
                 <td><?= h($invoices->amount) ?></td>
                 <td><?= h($invoices->services) ?></td>
                 <td><?= h($invoices->due) ?></td>
                 <td><?= h($invoices->created) ?></td>
-                <td><?= h($invoices->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Invoices', 'action' => 'view', $invoices->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Invoices', 'action' => 'edit', $invoices->id]) ?>
