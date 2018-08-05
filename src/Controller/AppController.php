@@ -37,6 +37,7 @@ class AppController extends Controller
      *
      * @return void
      */
+    
     public function initialize()
     {
         parent::initialize();
@@ -65,5 +66,21 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+    }
+    /**
+     * Before render callback.
+     * 
+     * @param \Cale\Event\Event $event the beforeRender event.
+     * @return void
+     */
+
+    public function beforeRender(Event $event){
+        //Check Login
+        if($this->request->session()->read('Auth.User')){
+            $this->set('loggedIn', true);
+
+        } else {
+            $this->set('loggedIn', false);
+        }
     }
 }

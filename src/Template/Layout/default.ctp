@@ -41,17 +41,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </li>
         </ul>
         <div class="top-bar-section">
-            <ul class="left">
-                <li><?=$this->Html->link(__('Patients'),['controller'=>'patients','action'=>'index']);?></li>
-                <li><?=$this->Html->link(__('Appointments'),['controller'=>'appointments','action'=>'index']);?></li>
-                <li><?=$this->Html->link(__('Doctors'),['controller'=>'doctors','action'=>'index']);?></li>
-                <li><?=$this->Html->link(__('Carriers'),['controller'=>'carriers','action'=>'index']);?></li>
-                <li><?=$this->Html->link(__('Invoices'),['controller'=>'invoices','action'=>'index']);?></li>
-            </ul>
-            <ul class="right">
-                <li><?=$this->Html->link(__('Manage Users'),['controller'=>'users','action'=>'index']);?></li>
-                <li><?=$this->Html->link(__('Logout'),['controller'=>'users','action'=>'logout']);?></li>
-            </ul>
+            <?php if($loggedIn) : ?>
+                <ul class="left">
+                    <li><?=$this->Html->link(__('Patients'),['controller'=>'patients','action'=>'index']);?></li>
+                    <li><?=$this->Html->link(__('Appointments'),['controller'=>'appointments','action'=>'index']);?></li>
+                    <li><?=$this->Html->link(__('Doctors'),['controller'=>'doctors','action'=>'index']);?></li>
+                    <li><?=$this->Html->link(__('Carriers'),['controller'=>'carriers','action'=>'index']);?></li>
+                    <li><?=$this->Html->link(__('Invoices'),['controller'=>'invoices','action'=>'index']);?></li>
+                </ul>
+                <ul class="right">
+                    <li><?=$this->Html->link(__('Manage Users'),['controller'=>'users','action'=>'index']);?></li>
+                    <li><?=$this->Html->link(__('Logout'),['controller'=>'users','action'=>'logout']);?></li>
+                </ul>
+            <?php endif; ?>
         </div>
     </nav>
     <?= $this->Flash->render() ?>
